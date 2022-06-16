@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
 
 module.exports = {
-  entry: [paths.src + '/index.js'],
+  entry: [paths.appSrc + '/index.js'],
   output: {
-    path: paths.build,
+    path: paths.appBuild,
     filename: '[name].bundle.js',
     publicPath: '/',
     assetModuleFilename: 'assets/[hash][ext][query]',
@@ -14,7 +14,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'React webpack boilerplate',
-      template: paths.static + '/index.html',
+      template: paths.appPublic + '/index.html',
       filename: 'index.html',
     }),
   ],
@@ -42,10 +42,10 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: [paths.src, 'node_modules'],
+    modules: [paths.appSrc, 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@': paths.src,
+      '@': paths.appSrc,
     },
   },
 }

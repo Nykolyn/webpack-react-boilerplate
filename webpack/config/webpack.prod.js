@@ -11,7 +11,7 @@ module.exports = merge(common, {
   target: 'browserslist',
   devtool: false,
   output: {
-    path: paths.build,
+    path: paths.appBuild,
     publicPath: '/',
     filename: 'js/[name].[contenthash].bundle.js',
     assetModuleFilename: 'assets/[hash][ext][query]',
@@ -32,7 +32,7 @@ module.exports = merge(common, {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: paths.static,
+          from: paths.appPublic,
           to: 'assets',
           globOptions: {
             gitignore: true,
